@@ -9,7 +9,7 @@ export const loginUser = async (req: Request, res: Response) => {
     console.log("Received user_password:", user_password);
 
     const result = await sql.query`
-          SELECT user_id, user_name, user_password 
+          SELECT user_id, user_name, user_password, user_fullname
           FROM M_User
           WHERE user_name = ${user_name};`;
 
@@ -25,7 +25,7 @@ export const loginUser = async (req: Request, res: Response) => {
     }
 
     console.log("User logged in:", user);
-    res.json({ message: "Login successful", user_id: user.user_id });
+    res.json({ message: "Login successful", user_id: user.user_id, user_fullname: user.user_fullname });
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ error: "Failed to login" });
