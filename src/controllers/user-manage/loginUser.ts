@@ -5,9 +5,8 @@ export const loginUser = async (req: Request, res: Response) => {
   try {
     const { user_name, user_password } = req.body; // รับข้อมูลจาก client
 
-    console.log("Received user_name:", user_name);
-    console.log("Received user_password:", user_password);
-
+    // console.log("Received user_name:", user_name);
+    // console.log("Received user_password:", user_password);
     const result = await sql.query`
           SELECT user_id, user_name, user_password, user_fullname
           FROM M_User
@@ -29,5 +28,24 @@ export const loginUser = async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).json({ error: "Failed to login" });
+  }
+};
+
+export const signUser = async (req: Request, res: Response) =>{
+  try {
+    
+  } catch (error) {
+    
+  }
+};
+
+export const userlog = async (req: Request, res: Response)=>{
+  try {
+    const { user_name } = req.body;
+    console.log("Received user_name:", user_name);
+    
+    const result = await sql.query ``
+  } catch (error) {
+    
   }
 };
