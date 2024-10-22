@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import sql from "mssql";
 import productRoutes from "./routes/productController"; // นำเข้า productRoutes
+import loginUserRoutes  from "./routes/user-manage/loginUser";
 
 dotenv.config();
 
@@ -49,8 +50,8 @@ app.get("/", (req: Request, res: Response) => {
   res.send("555!");
 });
 
-// ใช้งาน productRoutes ที่เส้นทาง /api
 app.use('/api', productRoutes);
+app.use('/api/login', loginUserRoutes);
 
 
 app.listen(port, () => {
