@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import sql from "mssql";
 import productRoutes from "./routes/productController"; // นำเข้า productRoutes
 import loginUserRoutes  from "./routes/user-manage/loginUser";
+import courseRoutes from "./routes/courseController";
 
 dotenv.config();
 
@@ -52,6 +53,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use('/api', productRoutes);
 app.use('/api/login', loginUserRoutes);
+app.use('/api/course', courseRoutes);
 
 
 app.listen(port, () => {
